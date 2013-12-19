@@ -24,8 +24,6 @@ def load(feed_filename, db_filename=":memory:"):
                        Transfer,
     ):
 
-        print "loading %s" % gtfs_class
-
         try:
             for i, record in enumerate(fd.get_table(gtfs_class.TABLENAME + ".txt")):
                 if i % 500 == 0:
@@ -35,7 +33,6 @@ def load(feed_filename, db_filename=":memory:"):
 
                 instance = gtfs_class(**record.to_dict())
                 schedule.session.add(instance)
-            print
         except KeyError:
             # TODO: check if the table is required
             continue
