@@ -11,7 +11,10 @@ class Entity(object):
                 elif attrtype == str:
                     attrvalue = unicode(attrvaluestr)
                 else:
-                    attrvalue = attrtype(attrvaluestr)
+                    try:
+                        attrvalue = attrtype(attrvaluestr)
+                    except:
+                        attrvalue = unicode(attrvaluestr)
 
                 setattr(self, attrname, attrvalue)
 
