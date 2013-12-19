@@ -75,6 +75,9 @@ class Date(object):
         return date(int(date_string[0:4]), int(date_string[4:6]),
                     int(date_string[6:8]))
 
+    def __getitem__(self, item):
+        return self.val
+
 
 def make_gtfs_foreign_key_class(cls):
     class ret(ForeignKey):

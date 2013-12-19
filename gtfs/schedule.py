@@ -43,9 +43,9 @@ class Schedule:
 
     def fare_rule(self, route_id, origin_id, destination_id):
         fare_rule = self.session.query(FareRule) \
-            .filter(FareRule.route_id == route_id,
-                    FareRule.origin_id == origin_id,
-                    FareRule.destination_id == destination_id) \
+            .filter(FareRule.route_id == route_id)\
+            .filter(FareRule.origin_id == origin_id)\
+            .filter(FareRule.destination_id == destination_id) \
             .first()
 
         return fare_rule

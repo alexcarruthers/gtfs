@@ -27,8 +27,6 @@ def load(feed_filename, db_filename=":memory:"):
         try:
             for i, record in enumerate(fd.get_table(gtfs_class.TABLENAME + ".txt")):
                 if i % 500 == 0:
-                    sys.stdout.write(".")
-                    sys.stdout.flush()
                     schedule.session.commit()
 
                 instance = gtfs_class(**record.to_dict())
